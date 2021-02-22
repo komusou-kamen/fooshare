@@ -1,0 +1,10 @@
+<h1>id: <%= @product.name %> の詳細ページ</h1>
+<p><%= @message.name %></p>
+<p><%= @message.price %></p>
+<p><%= @message.content %></p>
+
+<div>
+    <% if current_user == micropost.user %>
+        <%= link_to "Delete", product, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+</div>

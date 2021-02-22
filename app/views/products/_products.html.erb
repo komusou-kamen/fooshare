@@ -1,0 +1,14 @@
+<ul class="list-unstyled">
+  <% products.each do |product| %>
+    <li class="media mb-3">
+      <div class="media-body">
+        <div>
+          <p><%= link_to product.name, profuct_path %></p>
+          <p><%= product.price %></p>
+          <p><%= product.user.name %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate products %>
+</ul>
