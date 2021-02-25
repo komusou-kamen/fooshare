@@ -1,19 +1,17 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-    
-  def index
-    @products = Product.all
-  end
-
+  before_action :set_product, only: [:show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
+  
   def show
   end
 
   def new
-    @product = Product.new
+    @product = current_user.products.build
   end
 
   def create
-    @product= Product.new(product_params)
+    @product= current_user.products.build(product_params)
     
     if @product.save
       flash[:success] = '出品手続きが完了しました'
@@ -38,10 +36,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-      @product.destroy
+    @product.destroy
 
     flash[:success] = '正常に削除されました'
-    redirect_back(fallback_location: root_path)
+    redirect_to  products_user_path
   end
   
   private
@@ -52,7 +50,7 @@ class ProductsController < ApplicationController
   
    # Strong Parameter
   def product_params
-    params.require(:product).permit(:content, :name, :price)
+    params.require(:product).permit(:content, :name, :price, :image)
   end
   
   def correct_user

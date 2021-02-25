@@ -2,11 +2,12 @@
 
 <%= form_with(model: @product, local: true) do |f| %>
   <%= f.label :name, '商品名' %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
   <%= f.label :price, '値段' %>
-  <%= f.text_field :price %>
+  <%= f.text_field :price %><br>
   <%= f.label :content, '商品説明' %>
-  <%= f.text_field :content %>
+  <%= f.text_area :content %><br>
+  <%= f.file_field :image %><br>
 
   <%= f.submit '出品する' %>
 <% end %>

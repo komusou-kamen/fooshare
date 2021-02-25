@@ -3,7 +3,8 @@
     <li class="media mb-3">
       <div class="media-body">
         <div>
-          <p><%= link_to product.name, profuct_path %></p>
+          <%= image_tag product.image.variant(resize:'300x300').processed %>
+          <p><%= link_to product.name, product %></p>
           <p><%= product.price %></p>
           <p><%= product.user.name %></p>
         </div>

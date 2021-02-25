@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit, :update]
+  include SessionsHelper
+  before_action :require_user_logged_in, only: [:show, :edit, :update, :products]
   
   def show
-    @user = User.find(params[:id])
-    counts(@user)
+    @user = @current_user
   end
 
   def new
@@ -23,17 +23,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = @current_user
   end
 
   def update
-    if @user.update(user_params)
+    if @current_user.update(user_params)
       flash[:success] = '正常に更新されました'
-      redirect_to @user
+      redirect_to @current_user
     else
       flash.now[:danger] = '更新に失敗しました'
       render :edit
     end
+  end
+  
+  def products
+    @user = @current_user
+    @products = current_user.products.page(params[:page])
+    #counts(@user)
   end
   
   private
