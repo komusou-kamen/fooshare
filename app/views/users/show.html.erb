@@ -2,6 +2,9 @@
   <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">ユーザー情報  <span class="badge badge-secondary"></span></a></li>
   <li class="nav-item"><a href="<%= products_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(products_user_path(@user)) %>">出品中のアイテム  <span class="badge badge-secondary"><%= @count_products %></span></a></li>
 </ul>
+<% if @user.image != nil %>
+  <p><%= image_tag @user.image.variant(resize:'500x500').processed %></p>
+<% end %>
 
 <ul>
   <li><%= current_user.name %></li>
