@@ -47,8 +47,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: fooshare_production
   username: fooshare
-  password: <%= ENV['FOOSHARE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
