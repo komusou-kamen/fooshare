@@ -3,10 +3,12 @@
     <li class="media mb-3">
       <div class="media-body">
         <div>
-          <%= image_tag product.image.variant(resize:'300x300').processed %>
-          <p><%= link_to product.name, product %></p>
-          <p><%= product.price %></p>
-          <p><%= product.user.name %></p>
+          <% if product.image.attached? %>
+          <%= image_tag product.image.variant(resize:'400x400').processed %>
+          <% end %>
+          <p>商品名:<%= link_to product.name, product %></p>
+          <p>値段:<%= product.price %>ペリカ</p>
+          <p>出品者:<%= product.user.name %></p>
         </div>
       </div>
     </li>

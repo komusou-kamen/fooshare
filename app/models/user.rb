@@ -6,7 +6,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
     validates :phone, presence: true, length: { maximum: 20 },
-                    format: { with: /\A[0-9]+\z/ },
+                    numericality: { only_integer: true },
                     uniqueness: { case_sensitive: false }
     validates :address, presence: true, length: { maximum: 50 },
                     uniqueness: { case_sensitive: false }

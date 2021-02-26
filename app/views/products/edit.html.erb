@@ -1,12 +1,24 @@
 <h1>編集ページ</h1>
 
 <%= form_with(model: @product, local: true) do |f| %>
-  <%= f.label :name, '商品名' %>
-  <%= f.text_field :name %>
-  <%= f.label :price, '値段' %>
-  <%= f.text_field :price %>
-  <%= f.label :content, '商品説明' %>
-  <%= f.text_field :content %>
 
-  <%= f.submit '出品する' %>
+ <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.label :name, '商品名' %>
+  <%= f.text_field :name %><br>
+  <%= f.label :price, '値段' %>
+  <%= f.text_field :price %><br>
+  <%= f.label :content, '商品説明' %>
+  <%= f.text_area :content, size: "30x10" %><br>
+  <%= f.file_field :image %><br>
+
+  <%= f.submit '編集を完了する' %>
 <% end %>

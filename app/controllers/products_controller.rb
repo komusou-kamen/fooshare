@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   
   
   def show
+    @user = Product.find(params[:id]).user
+    #これでproductのユーザー情報取得できてる？？
   end
 
   def new
