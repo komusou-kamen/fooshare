@@ -4,5 +4,6 @@ class Product < ApplicationRecord
   validates :content, presence: true, length: { maximum: 500 }
   validates :name, presence: true, length: { maximum: 30 }
   validates :price, presence: true, numericality: { only_integer: true }
-  has_one_attached :image
+  mount_uploader :image, ImageUploader
+  #has_one_attached :image
 end

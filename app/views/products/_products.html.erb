@@ -3,8 +3,8 @@
     <li class="media mb-3">
       <div class="media-body">
         <div>
-          <% if product.image.attached? %>
-          <%= image_tag product.image.variant(resize:'400x400').processed %>
+          <% if product.image? %>
+          <%= image_tag product.image.image400.url %>
           <% end %>
           <p>商品名:<%= link_to product.name, product %></p>
           <p>値段:<%= product.price %>ペリカ</p>

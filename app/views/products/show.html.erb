@@ -1,14 +1,14 @@
 <h1>id: <%= @product.name %> の詳細ページ</h1>
 
-<% if @product.image.attached? %>
-  <p><%= image_tag @product.image.variant(resize:'400x400').processed %></p>
+<% if @product.image? %>
+  <p><%= image_tag @product.image.image400.url %></p>
 <% end %>
 <p>商品名:<%= @product.name %></p>
 <p>値段:<%= @product.price %>ペリカ</p>
 <p>商品説明:<%= @product.content %></p>
 
 <h3>出品者情報</h3>
-<p><%=  image_tag @user.image.variant(resize:'200x200').processed %></p>
+<p><%=  image_tag @user.image.image200.url %></p>
 <p>出品者:<%= @user.name %></p>
 <P>出品者電話番号:<%= @user.phone %></P>
 <p>出品者自己紹介:<%= @user.introduce %></p>

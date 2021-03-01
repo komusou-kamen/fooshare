@@ -12,5 +12,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
     has_secure_password
     has_many :products
-    has_one_attached :image
+    mount_uploader :image, ImageUploader
+    #has_one_attached :image
 end
