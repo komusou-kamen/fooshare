@@ -4,6 +4,8 @@
 </ul>
 <% if @user.image? %>
   <%= image_tag @user.image.image200.url, alt: 'Image Not Found' %>
+<% else %>
+  <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
 <% end %>
 
 <ul>

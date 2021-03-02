@@ -1,14 +1,18 @@
 <ul class="list-unstyled">
   <% products.each do |product| %>
-    <li class="media mb-3">
+    <li class="media mb-3"  style="margin:80px;">
       <div class="media-body">
         <div>
           <% if product.image? %>
             <%= image_tag product.image.image400.url, alt: 'Image Not Found' %>
+          <% else %>
+            <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
           <% end %>
-          <p>商品名:<%= link_to product.name, product %></p>
-          <p>値段:<%= product.price %>ペリカ</p>
-          <p>出品者:<%= product.user.name %></p>
+          <div class="border border-dark w-50" >
+            <p>商品名:<%= link_to product.name, product %></p>
+            <p>値段:<%= product.price %>ペリカ</p>
+            <p>出品者:<%= product.user.name %></p>
+          </div>
         </div>
       </div>
     </li>

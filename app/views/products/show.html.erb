@@ -2,6 +2,8 @@
 
 <% if @product.image? %>
   <p><%= image_tag @product.image.image400.url, alt: 'Image Not Found' %></p>
+<% else %>
+  <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
 <% end %>
 <p>商品名:<%= @product.name %></p>
 <p>値段:<%= @product.price %>ペリカ</p>
@@ -10,11 +12,13 @@
 <h3>出品者情報</h3>
 <% if @user.image? %>
   <p><%= image_tag @user.image.image200.url, alt: 'Image Not Found' %></p>
+<% else %>
+  <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
 <% end %>
+
 <p>出品者:<%= @user.name %></p>
 <P>出品者電話番号:<%= @user.phone %></P>
 <p>出品者自己紹介:<%= simple_format(current_user.introduce, sanitize: true, style: "word-break: break-word;")%></p>
-
 <div>
     <% if current_user == @product.user %>
       <%= link_to "商品情報を編集する", edit_product_path %>
