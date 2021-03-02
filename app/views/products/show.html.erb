@@ -13,7 +13,7 @@
 <% end %>
 <p>出品者:<%= @user.name %></p>
 <P>出品者電話番号:<%= @user.phone %></P>
-<p>出品者自己紹介:<%= @user.introduce %></p>
+<p>出品者自己紹介:<%= simple_format(current_user.introduce, sanitize: true, style: "word-break: break-word;")%></p>
 
 <div>
     <% if current_user == @product.user %>
