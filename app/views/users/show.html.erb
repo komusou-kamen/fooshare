@@ -3,7 +3,7 @@
   <li class="nav-item"><a href="<%= products_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(products_user_path(@user)) %>">出品中のアイテム  <span class="badge badge-secondary"><%= @count_products %></span></a></li>
 </ul>
 <% if @user.image? %>
-  <%= image_tag @user.image.image200.url %>
+  <%= image_tag @user.image.image200.url, alt: 'Image Not Found' %>
 <% end %>
 
 <ul>

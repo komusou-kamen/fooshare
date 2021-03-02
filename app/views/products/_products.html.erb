@@ -4,7 +4,7 @@
       <div class="media-body">
         <div>
           <% if product.image? %>
-          <%= image_tag product.image.image400.url %>
+            <%= image_tag product.image.image400.url, alt: 'Image Not Found' %>
           <% end %>
           <p>商品名:<%= link_to product.name, product %></p>
           <p>値段:<%= product.price %>ペリカ</p>
