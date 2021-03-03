@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
+  #before_action :set_product, only: [:show]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  
+  before_action :require_user_logged_in, only: [:show]
   
   def show
+    @product = Product.find(params[:id])
     @user = Product.find(params[:id]).user
-    #これでproductのユーザー情報取得できてる？？
   end
 
   def new
@@ -45,10 +45,6 @@ class ProductsController < ApplicationController
   end
   
   private
-  
-  def set_product
-    @product = Product.find(params[:id])
-  end
   
    # Strong Parameter
   def product_params
