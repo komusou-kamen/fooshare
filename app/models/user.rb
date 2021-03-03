@@ -8,8 +8,7 @@ class User < ApplicationRecord
     validates :phone, presence: true, length: { minimum: 8, maximum: 20 },
                     numericality: { only_integer: true },
                     uniqueness: { case_sensitive: false }
-    validates :address, presence: true, length: { maximum: 50 },
-                    uniqueness: { case_sensitive: false }
+    validates :address, presence: true, length: { maximum: 50 }
     has_secure_password
     has_many :products
     mount_uploader :image, ImageUploader
