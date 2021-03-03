@@ -1,28 +1,50 @@
-<h1>ユーザー情報編集ページ</h1>
+<div class="text-center">
+  <h1>ユーザー情報編集ページ</h1>
+</div>
 
-<%= form_with(model: @user, local: true) do |f| %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: @user, local: true) do |f| %>
+      
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.label :name, 'お名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-  <%= f.label :name, 'お名前' %>
-  <%= f.text_field :name %><br>
-  <%= f.label :email, 'メールアドレス' %>
-  <%= f.text_field :email %><br>
-  <%= f.label :phone, '電話番号' %>
-  <%= f.text_field :phone %><br>
-  <%= f.label :address, 'ご住所' %>
-  <%= f.text_field :address %><br>
-  <%= f.label :introduce, '自己紹介文' %>
-  <%= f.text_area :introduce, size: "30x10" %><br>
-  <%= f.file_field :image %><br>
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :phone, 'お電話番号' %>
+        <%= f.text_field :phone, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :address, 'ご住所' %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduce, '自己紹介文' %>
+        <%= f.text_area :introduce, class: 'form-control form-group-lg' %>
+      </div>
+      
+      <%= f.file_field :image, style: "padding:20px;" %><br>
 
-  <%= f.submit '編集を完了する' %>
-<% end %>
+      <%= f.submit '編集を完了する', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

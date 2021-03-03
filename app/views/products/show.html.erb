@@ -1,4 +1,4 @@
-<h1>id: <%= @product.name %> の詳細ページ</h1>
+<h1><%= @product.name %> の詳細ページ</h1>
 
 <% if @product.image? %>
   <p><%= image_tag @product.image.image400.url, alt: 'Image Not Found' %></p>
