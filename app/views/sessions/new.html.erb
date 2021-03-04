@@ -2,7 +2,7 @@
   <h1>Log in</h1>
 </div>
 
-<div class="row">
+
   <div class="col-sm-6 offset-sm-3">
 
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
@@ -22,4 +22,3 @@
 
     <p>New user? <%= link_to 'Sign up now!', signup_path %></p>
   </div>
-</div>

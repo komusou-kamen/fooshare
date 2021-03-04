@@ -2,8 +2,8 @@
   <h1>ユーザー情報編集ページ</h1>
 </div>
 
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
+
+  <div class="col-sm-6 offset-sm-4">
 
     <%= form_with(model: @user, local: true) do |f| %>
       
@@ -47,4 +47,3 @@
       <%= f.submit '編集を完了する', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
-</div>

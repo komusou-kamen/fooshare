@@ -3,11 +3,10 @@
 </div>
 
 
-<div class="row">
   <div class="col-sm-6 offset-sm-3">
     <%= form_with(model: @product, local: true) do |f| %>
     
-     <% if @product.errors.any? %>
+      <% if @product.errors.any? %>
         <div id="error_explanation">
           <ul>
             <% @product.errors.full_messages.each do |msg| %>
@@ -37,4 +36,3 @@
       <%= f.submit '編集を完了する', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
-</div>
