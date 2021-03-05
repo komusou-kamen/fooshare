@@ -1,21 +1,18 @@
-<ul class="list-unstyled">
-  <% products.each do |product| %>
-    <li class="media mb-3" style="margin-bottom:200px;">
-      <div>
-        <div class="media-top">
-          <% if product.image? %>
-            <%= link_to image_tag(product.image.image400.url, alt: 'Image Not Found'), product %>
-          <% else %>
-            <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
-          <% end %>
-        </div>
-        <div class="border border-dark media-body" style="width: 260px;" >
-          <p>商品名:<%= link_to product.name, product %></p>
-          <p>値段:<%= product.price %>ペリカ</p>
+<div class="col-lg-9 col-md-12">
+  <div class="card-deck">
+    <% products.each do |product| %>
+      <div class="card" style="width: 250px;">
+        <% if product.image? %>
+          <%= link_to image_tag(product.image.image400.url, alt: 'Image Not Found'), product, class: 'card-img-top' %>
+        <% else %>
+          <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">商品名:<%= product.name %></h5>
+          <p class="card-text">値段:<%= product.price %>ペリカ</p>
           <p>出品者:<%= product.user.name %></p>
         </div>
       </div>
-    </li>
-  <% end %>
-  <%= paginate products %>
-</ul>
+    <% end %>
+  </div>                         
+</div>
