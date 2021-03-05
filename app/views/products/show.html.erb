@@ -1,7 +1,7 @@
 <h1><%= @product.name %> の詳細ページ</h1>
 
 <% if @product.image? %>
-  <p><%= image_tag @product.image.image400.url, alt: 'Image Not Found' %></p>
+  <p><%= image_tag @product.image.image500.url, alt: 'Image Not Found' %></p>
 <% else %>
   <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
 <% end %>
