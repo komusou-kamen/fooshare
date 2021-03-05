@@ -5,7 +5,7 @@
         <% if product.image? %>
           <%= link_to image_tag(product.image.image400.url, alt: 'Image Not Found'), product, class: 'card-img-top' %>
         <% else %>
-          <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:250px;height:180px;">No Image</P>
+          <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:250px;height:163px;">No Image</P>
         <% end %>
         <div class="card-body">
           <h5 class="card-title">商品名:<%= link_to product.name, product %></h5>
