@@ -20,14 +20,15 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <div id="wrapper" class="container">
+    <div id="wrapper" class="container" style="padding-left:none;">
       <div class="row">
-        <div id="main" class= "col-sm-10">
-          <%= render 'layouts/flash_messages' %>
+        <%= render 'layouts/flash_messages' %>
+        <div id="main" class="col-sm-10" style="padding-left:none;">
+          
   
           <%= yield %>
         </div>
-        <aside id="sidebar" class="col-sm-2 text-right">
+        <aside class="col-sm-2">
           <section id="side_banner">
             <h2>関連リンク</h2>
               <ul>
