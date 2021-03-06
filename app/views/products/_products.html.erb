@@ -1,11 +1,12 @@
-<div class="col-lg-10 col-md-12">
+<div class="col-sm-9 col-lg-9 col-md-9 col-xl-9">
   <div class="card-deck">
     <% products.each do |product| %>
-      <div class="card" style="width: 250px;">
+    <div class="col-sm-3 col-lg-3 col-md-3 col-xl-3">
+      <div class="card" style="width: 250px; height:376px;">
         <% if product.image? %>
-          <%= link_to image_tag(product.image.image400.url, alt: 'Image Not Found'), product, class: 'card-img-top', style: 'height: 220px;' %>
+          <%= link_to image_tag(product.image.image400.url, alt: 'Image Not Found'), product, class: 'card-img-top img-fluid', style: 'height: 220px;' %>
         <% else %>
-          <p class="border border-dark" style="background-color:gray;width:250px;height:220px;">No Image</P>
+          <p class="border border-dark" style="background-color:gray;width:250px;height:188px;">No Image</P>
         <% end %>
         <div class="card-body">
           <h5 class="card-title">商品名:<%= link_to product.name, product %></h5>
@@ -13,6 +14,9 @@
           <p>出品者:<%= product.user.name %></p>
         </div>
       </div>
+      </div>
     <% end %>
   </div>                         
+</div>
+<div class="offset-sm-1 offset-lg-1 offset-md-1 offset-xl-1">
 </div>
