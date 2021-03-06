@@ -52,7 +52,9 @@
         <%= f.label :introduce, '自己紹介文' %>
         <%= f.text_area :introduce, class: 'form-control' %>
       </div>
-      
+      <div>
+        画像をアップロードする
+      </div>
       <%= f.file_field :image, style: "padding:20px;" %><br>
 
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
