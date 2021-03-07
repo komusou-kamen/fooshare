@@ -1,27 +1,36 @@
 <h1><%= @product.name %> の詳細ページ</h1>
-
-<% if @product.image? %>
-  <p><%= image_tag @product.image.image500.url, alt: 'Image Not Found' %></p>
-<% else %>
-  <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
-<% end %>
-<p>商品名:<%= @product.name %></p>
-<p>値段:<%= @product.price %>ペリカ</p>
-<p style="overflow-wrap: break-word;">商品説明<br><%= @product.content %></p>
-
-<h3>出品者情報</h3>
-<% if @user.image? %>
-  <p><%= link_to image_tag(@user.image.image200.url, alt: 'Image Not Found') %></p>
-<% else %>
-  <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
-<% end %>
-
-<p>出品者:<%= @user.name %></p>
-<P>出品者電話番号:<%= @user.phone %></P>
-<p style="overflow-wrap: break-word;">出品者自己紹介<br><%= @user.introduce %></p>
-<div>
-    <% if current_user == @product.user %>
-      <%= link_to "商品情報を編集する", edit_product_path %>
-      <%= link_to "商品を削除する", @product, method: :delete, data: { confirm: "本当に商品を削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+<div class="row">
+  <div class="col-sm-7 col-lg-7 col-md-7 col-xl-7">
+    <% if @product.image? %>
+      <p><%= image_tag @product.image.image500.url, alt: 'Image Not Found' %></p>
+    <% else %>
+      <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
     <% end %>
+  </div>
+  <div class="col-sm-5 col-lg-5 col-md-5 col-xl-5">
+    <p>商品名:<%= @product.name %></p>
+    <p>値段:<%= @product.price %>ペリカ</p>
+    <p style="overflow-wrap: break-word;">商品説明<br><%= @product.content %></p>
+  </div>
+</div>
+<h3>出品者情報</h3>
+<div class="row">
+  <div class="col-sm-4 col-lg-4 col-md-4 col-xl-4">
+    <% if @user.image? %>
+      <p><%= link_to image_tag(@user.image.image200.url, alt: 'Image Not Found') %></p>
+    <% else %>
+      <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
+    <% end %>
+  </div>
+  <div class="col-sm-8 col-lg-8 col-md-8 col-xl-8">
+    <p>出品者:<%= @user.name %></p>
+    <P>出品者電話番号:<%= @user.phone %></P>
+    <p style="overflow-wrap: break-word;">出品者自己紹介<br><%= @user.introduce %></p>
+  </div>
+</div>
+<div>
+  <% if current_user == @product.user %>
+    <%= link_to "商品情報を編集する", edit_product_path %>
+    <%= link_to "商品を削除する", @product, method: :delete, data: { confirm: "本当に商品を削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+  <% end %>
 </div>
