@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-7 col-lg-7 col-md-7 col-xl-7">
     <% if @product.image? %>
-      <p><%= image_tag @product.image.image500.url, alt: 'Image Not Found' %></p>
+      <p><%= image_tag @product.image.image500.url, alt: 'Image Not Found', class: "resizeimage" %></p>
     <% else %>
       <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
     <% end %>
@@ -17,7 +17,7 @@
 <div class="row">
   <div class="col-sm-4 col-lg-4 col-md-4 col-xl-4">
     <% if @user.image? %>
-      <p><%= link_to image_tag(@user.image.image200.url, alt: 'Image Not Found') %></p>
+      <p><%= image_tag @user.image.image200.url, alt: 'Image Not Found' %></p>
     <% else %>
       <p class="border border-dark" style="padding:30px;background-color:gray;margin:5px;width:140px;">No Image</P>
     <% end %>

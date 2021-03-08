@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+@media screen and (min-width: 768px) {
+  .resizeimage { 
+    width: 100%;
+    height: 100%;
+
+}
+}
+@media only screen and (min-width: 767px) and (max-width: 1280px) {
+  .resizeimage { 
+    max-width: 50%;
+    max-height: 50%px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .resizeimage { 
+    max-width: 10%;
+    max-height: 10%;
+}
+}
